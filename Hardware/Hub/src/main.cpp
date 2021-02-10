@@ -29,11 +29,6 @@ void loop()
     {
         Packet::packet_t packet;
         radio.read(&packet, sizeof(packet));
-
-        Serial.println(packet.sensor_id);
-        Serial.println(packet.category);
-        Serial.println(packet.event);
-        Serial.println(packet.payload);
-        Serial.println("--------------");
+        Serial.write((char*)&packet, sizeof(packet));
     }
 }
